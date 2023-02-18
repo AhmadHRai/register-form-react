@@ -1,0 +1,111 @@
+body {
+  background-image: url("../public/images/bg-cyan.jpg");
+  background-attachment: fixed;
+  background-position: 50%;
+  background-size: cover;
+}
+
+.App {
+  font: 13px/1.55 "Open Sans", Helvetica, Arial, sans-serif;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+form {
+  /* padding: 20px; */
+  margin: auto;
+  /* width: 50%; */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+form header {
+  background-color: rgba(248, 248, 248, 0.9);
+  padding: 20px 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 25px;
+  font-weight: 300;
+  color: #232323;
+}
+
+form fieldset {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px 30px 5px;
+}
+
+form fieldset + fieldset {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+form section {
+  margin-bottom: 20px;
+}
+
+form input {
+  /* padding-right: 45%; */
+  width: 100%;
+  height: 39px;
+  padding: 8px 10px;
+  border-style: solid;
+}
+
+section label {
+  position: relative;
+  display: block;
+}
+
+.icon {
+  /* padding: 10px;
+  background: white;
+  min-width: 40px;
+  text-align: center; */
+
+  color: darkGrey;
+  right: 5px;
+  padding-left: 3px;
+  border-left-width: 1px;
+  border-left-style: solid;
+  position: absolute;
+  top: 5px;
+  width: 29px;
+  height: 29px;
+  font-size: 15px;
+  line-height: 29px;
+  text-align: center;
+}
+
+.checkbox {
+  margin-bottom: 4px;
+  padding-left: 27px;
+  font-size: 15px;
+  line-height: 27px;
+  color: #404040;
+  cursor: pointer;
+}
+
+.checkbox input {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 13px;
+  height: 18px;
+}
+
+form footer {
+  padding: 15px 30px 25px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(248, 248, 248, 0.9);
+}
+
+form footer button {
+  float: right;
+  margin: 10px 0 0 20px;
+  padding: 0 25px;
+  border: 0;
+  height: 39px;
+  color: #fff;
+  background-color: #2da5da;
+  opacity: 0.8;
+}

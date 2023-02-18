@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Readme</title>
+</head>
+
+<body>
+    <!-- Open this page in the viewer on the right
+    by adding README.html to the address bar -->
+
+    <h1>Registration Form with Validation</h1>
+    <p>
+        In your career you will get to create registration forms. You can never
+        anticipate what data the users will insert so you need to make the
+        validation to make sure that the data that goes to your server is valid.
+    </p>
+
+    <h2>Overview</h2>
+    <p>
+        In this lab you are going to work with your group to make a registration
+        form that also handles validation. Make sure to divide the work between
+        the whole team and that everyone gets to work on everything.
+    </p>
+
+    <h2>Lab design</h2>
+    <img src="./images/registration.jpg" alt="" />
+
+    <h2>Requirements</h2>
+    <ol>
+        <li>Create the design of the page</li>
+        <li>
+            Validate the form inputs with the following in mind:
+            <ol>
+                <li>The full name should not contain any numbers</li>
+                <li>
+                    The email should be a valid email. It needs the @ sign and
+                    .com/.net/etc..
+                </li>
+                <li>
+                    The user name should not be used before. You can assume that the
+                    username Recoded already exists. so if the user inserts Recoded it
+                    should show them a message saying this user already exists.
+                </li>
+                <li>
+                    Passwords should have over 8 characters long, have at least one
+                    capital letter, have at least one small letter, have at least one
+                    number, have at least one symbol
+                </li>
+                <li>
+                    Repeated password should be exactly the same as the password field
+                    above it
+                </li>
+            </ol>
+        </li>
+        <li>
+            While the user is typing in the inputs you should be actively validating
+            to make sure that they are inserting the right information. If their
+            input is not valid, then you should notify them by showing them what the
+            error is below the input. For example, if the user inserts the wrong
+            email it should show them "Invalid email" in red under the email input.
+        </li>
+        <li>
+            Clicking on Sign up should make sure that all of the inputs are
+            validated correctly and that they agree on the terms. After that, it
+            checks if all data is correct, and sends a POST request to this
+            <a target="_blank" href="https://jsonplaceholder.typicode.com/users">API</a>
+            to create a new user. After the API is contacted we should receive a
+            message with the user ID.
+        </li>
+    </ol>
+</body>
+
+</html>
