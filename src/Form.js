@@ -1,9 +1,10 @@
 import "./styles.css";
 
-export default function Form() {
+export default function Form(props) {
+  const { onChange, onSubmit, data } = props;
   return (
     <>
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={onSubmit}>
         <header>Registration form</header>
         <fieldset>
           <section>
@@ -15,6 +16,7 @@ export default function Form() {
                 placeholder="Username"
                 pattern="^[A-Za-z0-9]{3,16}$"
                 title="Username should not contain spaces"
+                onChange={onChange}
                 required
               />
             </label>
@@ -27,6 +29,7 @@ export default function Form() {
                 name="email"
                 pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
                 placeholder="Email Address"
+                onChange={onChange}
                 required
               />
             </label>
@@ -41,6 +44,7 @@ export default function Form() {
                 pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$"
                 required
                 title="Passwords should have over 8 characters long, have at least one capital letter, have at least one small letter, have at least one number, have at least one symbol"
+                onChange={onChange}
               />
             </label>
           </section>
@@ -54,6 +58,7 @@ export default function Form() {
                 pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$"
                 required
                 title="Passwords should have over 8 characters long, have at least one capital letter, have at least one small letter, have at least one number, have at least one symbol"
+                onChange={onChange}
               />
             </label>
           </section>
@@ -70,6 +75,7 @@ export default function Form() {
                 required
                 pattern="^[A-Za-z]{3,16}$"
                 title="Your name (3+ characters) should not contain any numbers"
+                onChange={onChange}
               />
             </section>
             <section className="col">
@@ -80,6 +86,7 @@ export default function Form() {
                 required
                 pattern="^[A-Za-z]{3,16}$"
                 title="Your name (3+ characters) should not contain any numbers"
+                onChange={onChange}
               />
             </section>
           </div>
