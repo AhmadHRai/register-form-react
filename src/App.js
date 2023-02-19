@@ -24,11 +24,29 @@ export default function App() {
       //ToDo: 1- Handle all form validation in the handleSubmit + display a div or span for error
       //Or even have the error show up under the input
     }
-    console.log(formData);
+    console.log(formData); //before post
 
     //Todo: 2- POST the formData to this api:
-    const url = "https://jsonplaceholder.typicode.com/users";
     //The result should be similar to formData with id of 11
+    const url = "https://jsonplaceholder.typicode.com/users";
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: formData.username,
+        email: formData.email,
+        pwd1: formData.pwd1,
+        pwd2: formData.pwd2,
+        fname: formData.fname,
+        lname: formData.lname,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((e) => console.log(e)); //just logs it for now
   };
 
   return (
