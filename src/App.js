@@ -21,8 +21,14 @@ export default function App() {
     if (formData.pwd1 !== formData.pwd2) {
       console.log("Passwords dont match ERRRRROR");
       return;
+      //ToDo: 1- Handle all form validation in the handleSubmit + display a div or span for error
+      //Or even have the error show up under the input
     }
     console.log(formData);
+
+    //Todo: 2- POST the formData to this api:
+    const url = "https://jsonplaceholder.typicode.com/users";
+    //The result should be similar to formData with id of 11
   };
 
   return (
