@@ -1,4 +1,4 @@
-import "./styles.css";
+
 import Form from "./Form.js";
 import { useState } from "react";
 
@@ -15,15 +15,23 @@ export default function App() {
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  const [focused, setFocused] = useState(false);
+
+  const handleFocus = (e) => {
+      setFocused(true);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (formData.pwd1 !== formData.pwd2) {
-      console.log("Passwords dont match ERRRRROR");
+     
+      
+      event.preventDefault();
       return;
       //ToDo: 1- Handle all form validation in the handleSubmit + display a div or span for error
       //Or even have the error show up under the input
     }
+   
     console.log(formData); //before post
 
     //Todo: 2- POST the formData to this api:
@@ -51,7 +59,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <Form onChange={onChange} onSubmit={handleSubmit} data={formData} />
+      <Form onChange={onChange} onSubmit={handleSubmit}  focused={focused.toString()}  onBlur={handleFocus} data={formData} />
     </div>
   );
 }
