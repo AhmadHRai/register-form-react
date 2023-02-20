@@ -1,4 +1,3 @@
-
 import Form from "./Form.js";
 import { useState } from "react";
 
@@ -12,32 +11,34 @@ export default function App() {
     lname: "",
   });
 
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
+
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const [focused, setFocused] = useState(false);
 
   const handleFocus = (e) => {
-      setFocused(true);
+    setFocused(true);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (formData.pwd1 !== formData.pwd2) {
-     
-      
-      event.preventDefault();
-      return;
-      //ToDo: 1- Handle all form validation in the handleSubmit + display a div or span for error
-      //Or even have the error show up under the input
-    }
-   
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log(formData); //before post
 
-    //Todo: 2- POST the formData to this api:
-    //The result should be similar to formData with id of 11
-    const url = "https://jsonplaceholder.typicode.com/users";
+    if (hasEmptyKeys(formData)) {
+      setIsAlertVisible(true);
 
+      setTimeout(() => {
+        setIsAlertVisible(false);
+      }, 3000);
+    } else {
+      postData();
+    }
+  };
+
+  function postData() {
+    const url = "https://jsonplaceholder.typicode.com/users";
     fetch(url, {
       method: "POST",
       headers: {
@@ -55,11 +56,31 @@ export default function App() {
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((e) => console.log(e)); //just logs it for now
-  };
+  }
+
+  function hasEmptyKeys(obj) {
+    for (var key in obj) {
+      if (obj[key] === "") {
+        return true;
+      }
+    }
+    return false;
+  }
 
   return (
     <div className="App">
-      <Form onChange={onChange} onSubmit={handleSubmit}  focused={focused.toString()}  onBlur={handleFocus} data={formData} />
+      {isAlertVisible && (
+        <div className="alert-container">
+          <div className="alert-inner">Please Fill Out All Form Fields !!</div>
+        </div>
+      )}
+      <Form
+        onChange={onChange}
+        onSubmit={handleSubmit}
+        focused={focused.toString()}
+        onBlur={handleFocus}
+        data={formData}
+      />
     </div>
   );
 }

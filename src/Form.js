@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./styles.css";
 
 export default function Form(props) {
-  const { onChange, onBlur, onSubmit, focused,data } = props;
+  const { onChange, onBlur, onSubmit, focused, data } = props;
 
   return (
     <>
@@ -21,11 +21,11 @@ export default function Form(props) {
                 onChange={onChange}
                 onFocus={onBlur}
                 focused={focused}
-               
               />
-              <span>Username should not contain spaces</span>
+              <span>
+                Username should be at least 3 characters and not contain spaces
+              </span>
             </label>
-            
           </section>
           <section>
             <label>
@@ -39,7 +39,9 @@ export default function Form(props) {
                 onFocus={onBlur}
                 focused={focused}
               />
-              <span>Username should not contain spaces</span>
+              <span>
+                The email field should follow the standard email format
+              </span>
             </label>
           </section>
           <section>
@@ -50,14 +52,24 @@ export default function Form(props) {
                 name="pwd1"
                 placeholder="Password"
                 pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$"
-               
                 title="Passwords should have over 8 characters long, have at least one capital letter, have at least one small letter, have at least one number, have at least one symbol"
                 onChange={onChange}
                 onFocus={onBlur}
                 focused={focused}
-             
               />
-              <span>Passwords should have over 8 characters long, have at least one capital letter, have at least one small letter, have at least one number, have at least one symbol</span>
+              <span>
+                Passwords should have the following:
+                <br />
+                Over 8 characters long
+                <br />
+                At least one capital letter
+                <br />
+                At least one small letter
+                <br />
+                At least one number
+                <br />
+                At least one symbol
+              </span>
             </label>
           </section>
           <section>
@@ -68,13 +80,12 @@ export default function Form(props) {
                 name="pwd2"
                 placeholder="Confirm password"
                 pattern={data.pwd1}
-                title="Passwords should have over 8 characters long, have at least one capital letter, have at least one small letter, have at least one number, have at least one symbol"
+                title="The two passwords don't match"
                 onChange={onChange}
                 onFocus={onBlur}
                 focused={focused}
-            
               />
-              <span>Passwords should have over 8 characters long, have at least one capital letter, have at least one small letter, have at least one number, have at least one symbol</span>
+              <span>The two passwords don't match</span>
             </label>
           </section>
         </fieldset>
@@ -87,26 +98,32 @@ export default function Form(props) {
                 type="text"
                 name="fname"
                 placeholder="First Name"
-              
                 pattern="^[A-Za-z]{3,16}$"
                 title="Your name (3+ characters) should not contain any numbers"
                 onChange={onChange}
-            
+                onFocus={onBlur}
+                focused={focused}
               />
-              <span>Your name (3+ characters) should not contain any numbers</span>
+              <span>
+                Your first name should be at least 3 characters long and not
+                contain any numbers
+              </span>
             </section>
             <section className="col">
               <input
                 type="text"
                 name="lname"
                 placeholder="Last Name"
-               
                 pattern="^[A-Za-z]{3,16}$"
                 title="Your name (3+ characters) should not contain any numbers"
                 onChange={onChange}
-              
+                onFocus={onBlur}
+                focused={focused}
               />
-                <span>Your name (3+ characters) should not contain any numbers</span>
+              <span>
+                Your first name should be at least 3 characters long and not
+                contain any numbers
+              </span>
             </section>
           </div>
           <section>

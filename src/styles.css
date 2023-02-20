@@ -110,20 +110,35 @@ form footer button {
   opacity: 0.8;
 }
 
-
-span{
+span {
   font-size: 12px;
   padding: 3px;
   color: red;
   display: none;
 }
 
-input:invalid[focused="true"]{
+input:invalid[focused="true"] {
   border: 1px solid red;
-  
 }
 
 input:invalid[focused="true"] ~ span {
   display: block;
+}
 
+.alert-container {
+  /* position: absolute; */
+  top: 2rem;
+  width: 100%;
+}
+
+.alert-inner {
+  display: block;
+  text-align: center;
+  font-size: large;
+  padding: 8px 16px;
+  z-index: 1;
+  background-color: #ff0000;
+  box-shadow: 1px 2px 10px -3px rgb(0 0 0 / 70%);
+  -webkit-box-shadow: 1px 2px 10px -3px rgb(0 0 0 / 70%);
+  -moz-box-shadow: 1px 2px 10px -3px rgb(0 0 0 / 70%);
 }
